@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Countdown Timer</title>
+<script>
+let countdownInterval;
+function startCountdown()
+{
+// Clear any existing interval to prevent multiple timers
+clearInterval(countdownInterval);
+// Get the input value
+const inputSeconds = document.getElementById('inputSeconds').value;
+// Validate input
+if (inputSeconds === '' || isNaN(inputSeconds) || inputSeconds <= 0)
+{
+alert('Please enter a valid positive number of seconds.');
+return;
+}
+let remainingTime = parseInt(inputSeconds);
+const display = document.getElementById('countdownDisplay');
+// Update the display immediately
+updateDisplay(remainingTime);
+// Set an interval to update the countdown every second
+countdownInterval = setInterval(() => {
+remainingTime--;
+if (remainingTime <= 0) {
+clearInterval(countdownInterval);
+display.innerText = "Time's up!";
+return;
+}
+updateDisplay(remainingTime);
+}, 1000);
+}
+// Function to format and display the remaining time
+function updateDisplay(seconds) {
+const display = document.getElementById('countdownDisplay');
+const minutes = Math.floor(seconds / 60);
+const remainingSeconds = seconds % 60;
+display.innerText = `${padNumber(minutes)}:${padNumber(remainingSeconds)}`;
+}
+// Helper function to pad numbers with leading zeros
+function padNumber(num) {
+return num < 10 ? '0' + num : num;
+}
+</script>
+</head>
+<body>
+<h1>Countdown Timer</h1>
+<input type="number" id="inputSeconds" placeholder="Enter seconds">
+<button onclick="startCountdown()">Start Timer</button>
+<div id="countdownDisplay">00:00</div>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Countdown Timer</title>
+<script>
+let countdownInterval;
+function startCountdown()
+{
+// Clear any existing interval to prevent multiple timers
+clearInterval(countdownInterval);
+// Get the input value
+const inputSeconds = document.getElementById('inputSeconds').value;
+// Validate input
+if (inputSeconds === '' || isNaN(inputSeconds) || inputSeconds <= 0)
+{
+alert('Please enter a valid positive number of seconds.');
+return;
+}
+let remainingTime = parseInt(inputSeconds);
+const display = document.getElementById('countdownDisplay');
+// Update the display immediately
+updateDisplay(remainingTime);
+// Set an interval to update the countdown every second
+countdownInterval = setInterval(() => {
+remainingTime--;
+if (remainingTime <= 0) {
+clearInterval(countdownInterval);
+display.innerText = "Time's up!";
+return;
+}
+updateDisplay(remainingTime);
+}, 1000);
+}
+// Function to format and display the remaining time
+function updateDisplay(seconds) {
+const display = document.getElementById('countdownDisplay');
+const minutes = Math.floor(seconds / 60);
+const remainingSeconds = seconds % 60;
+display.innerText = `${padNumber(minutes)}:${padNumber(remainingSeconds)}`;
+}
+// Helper function to pad numbers with leading zeros
+function padNumber(num) {
+return num < 10 ? '0' + num : num;
+}
+</script>
+</head>
+<body>
+<h1>Countdown Timer</h1>
+<input type="number" id="inputSeconds" placeholder="Enter seconds">
+<button onclick="startCountdown()">Start Timer</button>
+<div id="countdownDisplay">00:00</div>
+</body>
+</html>
