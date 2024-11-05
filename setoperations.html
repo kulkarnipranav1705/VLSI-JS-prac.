@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Set Operations</title>
+ <script src="setOperation.js" defer></script>
+</head>
+<body>
+ <h1>Set Operations</h1>
+ <h2>Set Operations</h2>
+ <label for="set1">Set 1 (comma-separated):</label>
+ <input type="text" id="set1" placeholder="e.g., 1,2,3">
+ <label for="set2">Set 2 (comma-separated):</label>
+ <input type="text" id="set2" placeholder="e.g., 3,4,5">
+
+ <button onclick="performOperations()">Compute Operations</button>
+ <h3>Results:</h3>
+ <p id="union">Union: </p>
+ <p id="intersection">Intersection: </p>
+ <p id="difference">Difference (Set 1 - Set 2): </p>
+ <p id="symmetricDifference">Symmetric Difference: </p>
+</body>
+</html>
