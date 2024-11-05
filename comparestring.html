@@ -1,0 +1,87 @@
+- string.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>String Comparison</title>
+</head>
+<body>
+<h1>String Comparison Methods</h1>
+<input type="text" id="string1" placeholder="Enter first string">
+<input type="text" id="string2" placeholder="Enter second string">
+<button onclick="compareStrings()">Compare Strings</button>
+<div id="output"></div>
+<script>
+function compareStrings()
+{
+const string1 = document.getElementById('string1').value;
+const string2 = document.getElementById('string2').value;
+let output = '<h2>Comparison Results:</h2>';
+// 1. Direct Comparison
+if (string1 === string2)
+{
+output += `<p><strong>Direct Comparison:</strong> The strings are equal.</p>`;
+} else {
+output += `<p><strong>Direct Comparison:</strong> The strings are not equal.</p>`;
+}
+// 2. Case-Insensitive Comparison
+if (string1.toLowerCase() === string2.toLowerCase())
+{
+output += `<p><strong>Case-Insensitive Comparison:</strong> The strings are equal.</p>`;
+} else {
+output += `<p><strong>Case-Insensitive Comparison:</strong> The strings are not equal.</p>`;
+}
+// 3. Locale-Aware Comparison
+const localeComparison = string1.localeCompare(string2);
+if (localeComparison === 0)
+{
+output += `<p><strong>Locale-Aware Comparison:</strong> The strings are equal.</p>`;
+} else if (localeComparison < 0)
+{
+output += `<p><strong>Locale-Aware Comparison:</strong> "${string1}" is less than
+"${string2}".</p>`;
+} else {
+output += `<p><strong>Locale-Aware Comparison:</strong> "${string1}" is greater than
+"${string2}".</p>`;
+}
+// 4. Length Comparison
+if (string1.length === string2.length)
+{
+output += `<p><strong>Length Comparison:</strong> The strings have the same length.</p>`;
+} else if (string1.length < string2.length)
+{
+output += `<p><strong>Length Comparison:</strong> "${string1}" is shorter than "${string2}".</p>`;
+} else {
+output += `<p><strong>Length Comparison:</strong> "${string1}" is longer than "${string2}".</p>`;
+}
+// 5. Substring Comparison
+if (string1.includes(string2))
+{
+output += `<p><strong>Substring Comparison:</strong> "${string2}" is a substring of
+"${string1}".</p>`;
+} else if (string2.includes(string1))
+{
+output += `<p><strong>Substring Comparison:</strong> "${string1}" is a substring of
+"${string2}".</p>`;
+} else {
+output += `<p><strong>Substring Comparison:</strong> Neither string is a substring of the
+other.</p>`;
+}
+// 6. Lexicographical Comparison
+if (string1 < string2)
+{
+output += `<p><strong>Lexicographical Comparison:</strong> "${string1}" is less than
+"${string2}".</p>`;
+} else if (string1 > string2)
+{
+output += `<p><strong>Lexicographical Comparison:</strong> "${string1}" is greater than
+"${string2}".</p>`;
+} else {
+output += `<p><strong>Lexicographical Comparison:</strong> The strings are equal.</p>`;
+}
+document.getElementById('output').innerHTML = output;
+}
+</script>
+</body>
+</html>
