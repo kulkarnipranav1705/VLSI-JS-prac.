@@ -1,0 +1,45 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+ENTITY alu_4bit_tb IS
+END alu_4bit_tb;
+ARCHITECTURE behavior OF alu_4bit_tb IS
+-- Component Declaration for the Unit Under Test (UUT)
+COMPONENT alu_4bit
+PORT(
+A : IN std_logic_vector(3 downto 0);
+B : IN std_logic_vector(3 downto 0);
+Y : OUT std_logic_vector(3 downto 0);
+SEL : IN std_logic_vector(2 downto 0)
+);
+END COMPONENT;
+--Inputs
+signal A : std_logic_vector(3 downto 0) := (others => '0');
+signal B : std_logic_vector(3 downto 0) := (others => '0');
+signal SEL : std_logic_vector(2 downto 0) := (others => '0');
+--Outputs
+signal Y : std_logic_vector(3 downto 0);
+BEGIN
+-- Instantiate the Unit Under Test (UUT)
+uut: alu_4bit PORT MAP (
+A => A,
+B => B,
+Y => Y,
+SEL => SEL
+);
+-- Stimulus process
+stim_proc: process
+begin
+wait for 25 ns;
+A <= "1001";
+end process;
+stim_proc1: process
+begin
+wait for 50 ns;
+B <= "0011";
+end process;
+	stim_proc2: process
+begin
+wait for 100 ns;
+SEL <= "001";
+end process;
+END;

@@ -1,0 +1,57 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+entity main_src_tb is
+end main_src_tb;
+architecture Behavioral of main_src_tb is
+signal clk, rst: std_logic := '0';
+signal RS, EN, Dout: std_logic_vector(7 downto 0);
+component main_src
+Port (
+RS : out STD_LOGIC;
+EN : out STD_LOGIC;
+Dout : out STD_LOGIC_VECTOR(7 downto 0);
+clk : in STD_LOGIC;
+rst : in STD_LOGIC
+);
+end component;
+begin
+uut: main_src
+Port Map (
+RS => RS,
+EN => EN,
+Dout => Dout,
+clk => clk,
+rst => rst
+);
+-- Clock generation process
+process
+begin
+while not stop_simulation loop
+clk <= '0';
+wait for 5 ns;
+clk <= '1';
+wait for 5 ns;
+end loop;
+wait;
+end process;
+-- Reset generation process
+process
+begin
+rst <= '1';
+wait for 20 ns;
+rst <= '0';
+wait;
+end process;
+-- Monitor the outputs
+process
+begin
+wait for 10 ns; -- Wait for some initial time
+-- You can add your test cases here and monitor the outputs
+-- For example:
+-- assert RS = '0' and EN = '1' and Dout = X"38" after 20 ns;
+-- Continue with your test cases and assertions
+wait;
+end process;
+end Behavioral;
