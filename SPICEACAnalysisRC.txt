@@ -1,0 +1,5 @@
+r1 n001 n002 10k
+c1 n002 0 10n
+vin n001 0 sine(0 5 10k 0.01u 0 0 10)
+.tran 500u
+.end
